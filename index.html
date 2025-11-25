@@ -1,152 +1,106 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Crypto Club Landing</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UNMICO — Автономная криптосистема</title>
 
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #04070a;
-    color: #e8f7ff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    text-align: center;
-  }
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #000000, #001f33);
+      color: #eaf7ff;
+      text-align: center;
+    }
 
-  .photo-circle {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #00eaff;
-    box-shadow: 0 0 25px #00eaff;
-    margin-bottom: 25px;
-  }
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 30px;
+      border: 3px solid #00eaff;
+      box-shadow: 0 0 20px #00eaff;
+    }
 
-  .photo-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-  h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #00eaff;
-    text-shadow: 0 0 18px #00eaff;
-    margin-bottom: 15px;
-    white-space: nowrap;
-  }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #00eaff;
+      font-weight: bold;
+    }
 
-  .unmico-block {
-    background: #00141a;
-    border: 1px solid #00eaff55;
-    padding: 18px 20px;
-    max-width: 500px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 25px #008fb355;
-  }
+    .description {
+      font-size: 1.15em;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      opacity: 0.95;
+      white-space: pre-line;
+    }
 
-  .unmico-title {
-    font-size: 1.25rem;
-    color: #00eaff;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
+    .telegram-btn {
+      background-color: #00eaff;
+      color: #001119;
+      padding: 15px 40px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+      box-shadow: 0 0 15px #00eaff;
+    }
+    .telegram-btn:hover {
+      background-color: #009ac2;
+      box-shadow: 0 0 25px #00eaff;
+    }
+  </style>
 
-  .unmico-list {
-    color: #b9f4ff;
-    font-size: 1rem;
-    line-height: 1.5;
-    text-align: left;
-    margin: 0 auto;
-    max-width: 350px;
-  }
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1151211133858814');
+    fbq('track', 'PageView');
+  </script>
 
-  p {
-    font-size: 1.1rem;
-    max-width: 500px;
-    color: #b9f4ff;
-    margin-bottom: 25px;
-  }
-
-  input[type="file"] {
-    margin-top: 10px;
-    border: none;
-    padding: 10px;
-    background: #00eaff20;
-    border-radius: 8px;
-    color: #00eaff;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  input[type="file"]:hover {
-    background: #00eaff40;
-  }
-
-  .telegram-btn {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 15px 40px;
-    background: #00eaff;
-    color: #00171f;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 10px;
-    text-decoration: none;
-    text-transform: uppercase;
-    box-shadow: 0 0 25px #00eaff;
-    transition: 0.3s;
-  }
-
-  .telegram-btn:hover {
-    background: #008fb3;
-    box-shadow: 0 0 35px #00eaff;
-  }
-</style>
-
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1151211133858814&ev=PageView&noscript=1" />
+  </noscript>
 </head>
+
 <body>
 
-  <div class="photo-circle">
-    <img id="preview" src="poker.jpg" alt="Фото">
+  <div class="avatar">
+    <img src="images/avatar.jpg" alt="UNMICO" />
   </div>
 
-  <input type="file" accept="image/*" onchange="loadImage(event)">
+  <h1>UNMICO</h1>
 
-  <h1>Crypto Elite Club</h1>
-
-  <!-- 🔥 Блок UNMICO -->
-  <div class="unmico-block">
-    <div class="unmico-title">UNMICO — система, увеличивающая криптокапитал сама</div>
-    <div class="unmico-list">
-      ✔ контроль над средствами<br>
-      ✔ автономные стратегии<br>
-      ✔ бонусы для ранних участников
-    </div>
+  <div class="description">
+✔ Контроль над средствами  
+✔ Автономные стратегии  
+✔ Бонусы для ранних участников
   </div>
 
-  <p>Эксклюзивное сообщество для тех, кто ценит технологическое превосходство, приватность и высокий статус.</p>
-
- 
   <a class="telegram-btn" href="https://t.me/+2cGHnxSc8Go2NDJk" target="_blank">Присоединиться</a>
-
-<script>
-function loadImage(event) {
-  const output = document.getElementById('preview');
-  output.src = URL.createObjectURL(event.target.files[0]);
-  output.onload = () => {
-    URL.revokeObjectURL(output.src);
-  }
-}
-</script>
 
 </body>
 </html>
